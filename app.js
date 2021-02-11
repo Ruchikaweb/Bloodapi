@@ -26,13 +26,7 @@ app.get('/group' ,(req,res) =>{
 
 /////get register/////
 app.get('/register',(req,res)=>{
-    var query = req.query.bloodgroup 
-    if(req.query.bloodgroup){
-        query = { bloodgroup:req.query.bloodgroup ,isActive:true}
-    }else{
-        query = {isActive:true}
-    }
-    db.collection('register').find(query).toArray((err,result)=>{
+    db.collection('register').find().toArray((err,result)=>{
         if(err) throw err ;
         res.send(result)
     })
