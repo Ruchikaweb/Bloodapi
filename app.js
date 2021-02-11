@@ -17,7 +17,7 @@ app.get('/', (req,res) =>{
 })
 
 /// blood group////
-app.get('/donar' ,(req,res) =>{
+app.get('/group' ,(req,res) =>{
     db.collection('Bloodgroups').find().toArray((err,result) => {
         if(err) throw err ;
         res.send(result)
