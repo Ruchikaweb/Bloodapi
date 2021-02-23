@@ -15,7 +15,7 @@ app.use(bodyparser.json())
 app.get('/', (req,res) =>{
     res.send('Health Ok')
 })
-
+    
 /// blood group////
 app.get('/group' ,(req,res) =>{
     db.collection('Bloodgroups').find().toArray((err,result) => {
