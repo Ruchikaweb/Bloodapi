@@ -67,10 +67,10 @@ app.post('/require',(req,res)=>{
     })
 })
 /////Delete //////
-app.delete('/delete',(req,res) => {
-//     var del = mongo.ObjectID(req.params.id)
-    var id = mongo.ObjectID(req.body._id)
-    db.collection('requirement').remove({_id:id},(err,result)=>{
+app.delete('/delete/:id',(req,res) => {
+    var del = mongo.ObjectID(req.params.id)
+//     var id = mongo.ObjectID(req.body._id)
+    db.collection('requirement').remove({_id:del},(err,result)=>{
         if(err) throw err;
         res.status(200).send("Data Removed")
     })
