@@ -42,6 +42,17 @@ app.get('/register/:group', (req,res) => {
     })
 })
 
+////Delete register///
+app.delete('/deleteregister',(req,res) => {
+    var question = req.body.question ;
+    var answer = req.body.answer ;
+    // var del = mongo.ObjectID(req.params.id) 
+    db.collection('register').remove({selectquestion:question,answer:answer},(err,result)=>{
+        if(err) throw err;
+        res.status(200).send("Data Removed")
+    })
+})
+
 /////Post register/////
 app.post('/registration',(req,res)=>{
     db.collection('register').insert(req.body ,(err,result) => {
