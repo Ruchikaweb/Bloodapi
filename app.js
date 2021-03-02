@@ -50,7 +50,7 @@ app.delete('/deleteregister',(req,res) => {
     // var del = mongo.ObjectID(req.params.id) 
     db.collection('register').remove({_id:id,selectquestion:question,answer:answer},(err,result)=>{
         if(err) throw err;
-        res.status(200).send("Data Removed")
+        res.status(200).send(result)
     })
 })
 
